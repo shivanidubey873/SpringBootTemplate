@@ -46,11 +46,10 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5 
-    - abcd: Only development environments
-      if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
-      action: debug:log
-      input:
-        message: 'development step'
+          if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
+          action: debug:log
+          input:
+            message: 'development step'
       # else:
       # action: debug:log
       # input:
