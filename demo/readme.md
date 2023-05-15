@@ -1,1 +1,1 @@
-${{values.environment}}
+${{parameters.environment}}
