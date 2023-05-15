@@ -35,11 +35,11 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
-    - title: Fill in some steps
+    - title: Enter environment
       required:
         - environment
       properties:
-        name:
+        environment:
           title: environment
           type: string
           description: Enter  staging/development/prod or production
