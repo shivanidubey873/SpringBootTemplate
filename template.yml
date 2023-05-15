@@ -50,9 +50,10 @@ spec:
       script: "Struggling with syntax"
       rules:
           if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
-          action: debug:log
-          input:
-            message: 'development step'
+          parameters.environment : "abc"
+          # action: debug:log
+          # input:
+          #   message: 'development step'
       # else:
       # action: debug:log
       # input:
