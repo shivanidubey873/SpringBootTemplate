@@ -5,8 +5,6 @@ metadata:
   name: spring-boot-template
   title: Spring Boot Template
   description: Create a simple Spring Boot application
-  tags:
-    - recommended
 spec:
   owner: shivanidubey@example.com
   type: service
