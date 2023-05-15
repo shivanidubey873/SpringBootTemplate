@@ -48,6 +48,7 @@ spec:
             rows: 5 
       job:
       script: "Struggling with syntax"
+      parameters.environment : "def"
       rules:
           if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
           parameters.environment : "abc"
