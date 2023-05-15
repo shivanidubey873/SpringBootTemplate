@@ -46,6 +46,9 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5 
+      job:
+      script: "Struggling with syntax"
+      rules:
           if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
           action: debug:log
           input:
