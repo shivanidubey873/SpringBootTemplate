@@ -14,17 +14,7 @@ spec:
   parameters:
     - title: Fill in some steps
       required:
-        - name: Only development environments
-          if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
-          action: debug:log
-          input:
-            message: 'development step'
-
-        - name: Only production environments
-          if: ${{ parameters.environment === "prod" or parameters.environment === "production" }}
-          action: debug:log
-          input:
-            message: 'production step'
+        - name
       properties:
         name:
           title: Name
@@ -33,6 +23,7 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
+    
     - title: Choose a location
       required:
         - repoUrl
@@ -44,6 +35,28 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+    - title: Fill in some steps
+      required:
+        - environment
+      properties:
+        name:
+          title: environment
+          type: string
+          description: Enter  staging/development/prod or production
+          ui:autofocus: true
+          ui:options:
+            rows: 5 
+    - name: Only development environments
+      if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
+      action: debug:log
+      input:
+        message: 'development step'
+
+    - name: Only production environments
+      if: ${{ parameters.environment === "prod" or parameters.environment === "production" }}
+      action: debug:log
+      input:
+        message: 'production step'
 
   # These steps are executed in the scaffolder backend, using data that we gathered
   # via the parameters above.
