@@ -14,7 +14,17 @@ spec:
   parameters:
     - title: Fill in some steps
       required:
-        - name
+        - name: Only development environments
+          if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
+          action: debug:log
+          input:
+            message: 'development step'
+
+        - name: Only production environments
+          if: ${{ parameters.environment === "prod" or parameters.environment === "production" }}
+          action: debug:log
+          input:
+            message: 'production step'
       properties:
         name:
           title: Name
