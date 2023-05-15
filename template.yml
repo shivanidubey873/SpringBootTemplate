@@ -42,7 +42,7 @@ spec:
         environment:
           title: environment
           type: string
-          description: Enter  staging/development/prod or production
+          description: Enter  staging/development
           ui:autofocus: true
           ui:options:
             rows: 5 
@@ -51,12 +51,16 @@ spec:
       action: debug:log
       input:
         message: 'development step'
+      # else:
+      # action: debug:log
+      # input:
+      #   message: 'development step'
 
-    - name: Only production environments
-      if: ${{ parameters.environment === "prod" or parameters.environment === "production" }}
-      action: debug:log
-      input:
-        message: 'production step'
+    # - name: Only production environments
+    #   if: ${{ parameters.environment === "prod" or parameters.environment === "production" }}
+    #   action: debug:log
+    #   input:
+    #     message: 'production step'
 
   # These steps are executed in the scaffolder backend, using data that we gathered
   # via the parameters above.
