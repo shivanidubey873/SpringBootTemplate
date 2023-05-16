@@ -39,7 +39,7 @@ spec:
       required:
         - group
       properties:
-        name:
+        group:
           title: Group
           type: string
           ui:autofocus: true
@@ -49,7 +49,7 @@ spec:
       required:
         - package
       properties:
-        name:
+        package:
           title: Package
           type: string
           ui:autofocus: true
