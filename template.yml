@@ -35,6 +35,26 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+    - title: Enter Group
+      required:
+        - group
+      properties:
+        name:
+          title: Group
+          type: string
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+    - title: Enter Package name
+      required:
+        - package
+      properties:
+        name:
+          title: Package
+          type: string
+          ui:autofocus: true
+          ui:options:
+            rows: 5
     - title: Enter environment
       required:
         - environment
@@ -51,7 +71,7 @@ spec:
       parameters.environment : "def"
       rules:
           if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
-          parameters.environment : "abc"
+          
           # action: debug:log
           # input:
           #   message: 'development step'
@@ -80,6 +100,8 @@ spec:
         values:
           name: ${{ parameters.name }}
           environment: ${{parameters.environment}}
+          group: ${{parameters.group}}
+          package: ${{parameters.package}}
 
     # This step publishes the contents of the working directory to GitHub.
     - id: publish
