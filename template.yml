@@ -69,13 +69,13 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5 
-  set: 
-  condition1: {{parameters.environment}}
-  if: $.condition1 === "development"
-  then:
-    - print: "Welcome!!!!!"
-  else:
-    - print: "User not found"
+  # set: 
+  # condition1: {{parameters.environment}}
+  # if: $.condition1 === "development"
+  # then:
+  #   - print: "Welcome!!!!!"
+  # else:
+  #   - print: "User not found"
       # job:
       # script: "Struggling with syntax"
       # parameters.environment : "def"
@@ -106,6 +106,16 @@ spec:
   # via the parameters above.
   steps:
     # Each step executes an action, in this case one templates files into the working directory.
+    - name: Only development environments
+      if: ${{ parameters.environment === "development" }}
+      action: debug:log
+      input:
+        message: 'development step'
+  #   if: $.condition1 === "development"
+  # then:
+  #   - print: "Welcome!!!!!"
+  # else:
+  #   - print: "User not found"
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
