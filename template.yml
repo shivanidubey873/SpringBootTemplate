@@ -74,6 +74,8 @@ spec:
   if: $.condition1 === "development"
   then:
     - print: "Welcome!!!!!"
+  else:
+    - print: "User not found"
       # job:
       # script: "Struggling with syntax"
       # parameters.environment : "def"
