@@ -62,7 +62,7 @@ spec:
         environment:
           title: environment
           type: string
-          if: ${{ parameters.environment === "development"}}
+          if: $.parameters.environment === "development"
           then:
             - print: "Welcome!!!!!"
           description: Enter  staging/development
