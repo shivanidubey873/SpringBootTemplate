@@ -62,15 +62,26 @@ spec:
         environment:
           title: environment
           type: string
+          if: ${{ parameters.environment === "development"}}
+          then:
+            action: debug:log
+            input:
+              message: 'development step'
           description: Enter  staging/development
           ui:autofocus: true
           ui:options:
             rows: 5 
-      job:
-      script: "Struggling with syntax"
-      parameters.environment : "def"
-      rules:
-          if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
+      # job:
+      # script: "Struggling with syntax"
+      # parameters.environment : "def"
+      # rules:
+      #     if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
+  # field:  ${{parameters.environment}}
+  # {{#if field}}
+
+  # {{else}}
+
+  # {{/if}}
           
           # action: debug:log
           # input:
