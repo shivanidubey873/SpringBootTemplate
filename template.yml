@@ -130,7 +130,6 @@ spec:
     - id: register
       name: Register
       action: catalog:register
-      if: ${{ parameters.environment === "development" }}
       input:
         repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
