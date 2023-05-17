@@ -62,13 +62,16 @@ spec:
         environment:
           title: environment
           type: string
-          if: $.parameters.environment === "development"
-          then:
-            - print: "Welcome!!!!!"
+          # if: $.parameters.environment === "development"
+          # then:
+          #   - print: "Welcome!!!!!"
           description: Enter  staging/development
           ui:autofocus: true
           ui:options:
             rows: 5 
+  if: $.parameters.environment === "development"
+  then:
+    - print: "Welcome!!!!!"
       # job:
       # script: "Struggling with syntax"
       # parameters.environment : "def"
