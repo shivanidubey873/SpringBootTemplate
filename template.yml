@@ -64,9 +64,7 @@ spec:
           type: string
           if: ${{ parameters.environment === "development"}}
           then:
-            action: debug:log
-            input:
-              message: 'development step'
+            - print: "Welcome!!!!!"
           description: Enter  staging/development
           ui:autofocus: true
           ui:options:
