@@ -69,38 +69,7 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5 
-  # set: 
-  # condition1: {{parameters.environment}}
-  # if: $.condition1 === "development"
-  # then:
-  #   - print: "Welcome!!!!!"
-  # else:
-  #   - print: "User not found"
-      # job:
-      # script: "Struggling with syntax"
-      # parameters.environment : "def"
-      # rules:
-      #     if: ${{ parameters.environment === "staging" and parameters.environment === "development" }}
-  # field:  ${{parameters.environment}}
-  # {{#if field}}
-
-  # {{else}}
-
-  # {{/if}}
-          
-          # action: debug:log
-          # input:
-          #   message: 'development step'
-      # else:
-      # action: debug:log
-      # input:
-      #   message: 'development step'
-
-    # - name: Only production environments
-    #   if: ${{ parameters.environment === "prod" or parameters.environment === "production" }}
-    #   action: debug:log
-    #   input:
-    #     message: 'production step'
+  
 
   # These steps are executed in the scaffolder backend, using data that we gathered
   # via the parameters above.
@@ -111,6 +80,9 @@ spec:
       action: debug:log
       input:
         message: 'development step'
+      else:
+        message: 'development step'
+
   #   if: $.condition1 === "development"
   # then:
   #   - print: "Welcome!!!!!"
