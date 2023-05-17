@@ -69,7 +69,9 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5 
-  if: $.parameters.environment === "development"
+  set: 
+  condition1: {{parameters.environment}}
+  if: $.condition1 === "development"
   then:
     - print: "Welcome!!!!!"
       # job:
