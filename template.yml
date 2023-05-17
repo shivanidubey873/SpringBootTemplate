@@ -91,6 +91,7 @@ spec:
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
+      if: ${{ parameters.environment === "development" }}
       input:
         url: ./demo
         copyWithoutRender:
@@ -100,6 +101,21 @@ spec:
           environment: ${{parameters.environment}}
           group: ${{parameters.group}}
           package: ${{parameters.package}}
+    
+    - id: fetch-base
+      name: Fetch Base
+      action: fetch:template
+      if: ${{ parameters.environment !== "development" }}
+      input:
+        url: ./src
+        copyWithoutRender:
+          - .github/workflows/*
+        values:
+          name: ${{ parameters.name }}
+          environment: ${{parameters.environment}}
+          group: ${{parameters.group}}
+          package: ${{parameters.package}}
+          
 
     # This step publishes the contents of the working directory to GitHub.
     - id: publish
