@@ -116,7 +116,7 @@ spec:
       input:
         url: ./demo/src
         values:
-          use_techdocs: ${{ 'abc.txt' if parameters.environment === 'development' }}
+          use_techdocs: ${{ "abc.txt" if parameters.environment === "development" }}
 
     - id: fetch-base
       name: Fetch Base
