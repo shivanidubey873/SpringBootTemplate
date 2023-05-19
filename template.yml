@@ -102,13 +102,21 @@ spec:
           group: ${{parameters.group}}
           package: ${{parameters.package}}
     
-    - id: delete-files
-      if: ${{ parameters.environment === "development" }}
-      name: Delete files
-      action: fs:delete
+    # - id: delete-files
+    #   if: ${{ parameters.environment === "development" }}
+    #   name: Delete files
+    #   action: fs:delete
+    #   input:
+    #     files:
+    #       - abc.txt
+        
+    - id: fetch-base
+      name: Fetch Base
+      action: fetch:template
       input:
-        files:
-          - abc.txt
+        url: ./demo/src
+        values:
+          use_techdocs: ${{ 'abc.txt' if parameters.environment === 'development' }}
 
     - id: fetch-base
       name: Fetch Base
