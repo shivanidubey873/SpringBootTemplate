@@ -103,9 +103,9 @@ spec:
           package: ${{parameters.package}}
     
     - id: delete-files
+      if: ${{ parameters.environment === "development" }}
       name: Delete files
       action: fs:delete
-      if: ${{ parameters.environment === "development" }}
       input:
         files:
           - abc.txt
