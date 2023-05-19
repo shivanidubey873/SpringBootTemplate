@@ -86,7 +86,7 @@ spec:
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
-      if: ${{ parameters.environment === "development" }}
+      # if: ${{ parameters.environment === "development" }}
       input:
         url: ./demo
         copyWithoutRender:
@@ -97,19 +97,19 @@ spec:
           group: ${{parameters.group}}
           package: ${{parameters.package}}
 
-    - id: fetch-base
-      name: Fetch Base
-      action: fetch:template
-      if: ${{ parameters.environment !== "development" }}
-      input:
-        url: ./demo/src
-        copyWithoutRender:
-          - .github/workflows/*
-        values:
-          name: ${{ parameters.name }}
-          environment: ${{parameters.environment}}
-          group: ${{parameters.group}}
-          package: ${{parameters.package}}
+    # - id: fetch-base
+    #   name: Fetch Base
+    #   action: fetch:template
+    #   if: ${{ parameters.environment !== "development" }}
+    #   input:
+    #     url: ./demo/src
+    #     copyWithoutRender:
+    #       - .github/workflows/*
+    #     values:
+    #       name: ${{ parameters.name }}
+    #       environment: ${{parameters.environment}}
+    #       group: ${{parameters.group}}
+    #       package: ${{parameters.package}}
           
 
     # This step publishes the contents of the working directory to GitHub.
@@ -128,7 +128,7 @@ spec:
       input:
         repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
-        
+
   # Outputs are displayed to the user after a successful execution of the template.
   output:
     links:
