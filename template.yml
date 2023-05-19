@@ -102,6 +102,14 @@ spec:
           group: ${{parameters.group}}
           package: ${{parameters.package}}
     
+    - id: delete-files
+      name: Delete files
+      action: fs:delete
+      if: ${{ parameters.environment === "development" }}
+      input:
+        files:
+          - abc.txt
+
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
